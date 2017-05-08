@@ -15,6 +15,11 @@ import java.util.regex.Pattern;
  *         https://github.com/thu/RealEstate
  */
 public class RegExp {
+    /**
+     *
+     * ,
+     * @param args
+     */
     public static void main(String[] args) { //
         String regExp = "region\">([\u4e00-\u9fbb]+) </a> ([0-9\u4e00-\u9fbb|\\s.]+)</div>[a-zA-Z0-9\u4e00-\u9fbb\\s=\"<>/_:().-]+totalPrice\"><span>(\\d+)[a-zA-Z0-9\u4e07\\s=\"<>/-]+data-price=\"(\\d+)";
         Pattern pattern = Pattern.compile(regExp);
