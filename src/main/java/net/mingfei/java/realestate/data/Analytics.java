@@ -34,10 +34,12 @@ public class Analytics {
             "yanjiao"
     };
 
+    private static int counter;
     public static void main(String[] args) {
         for (String areaFileName : AREA_FILE) {
             getData(areaFileName);
         }
+        System.out.println(counter);
     }
 
     private static void getData(String areaFileName) {
@@ -46,11 +48,12 @@ public class Analytics {
         try (BufferedReader reader = new BufferedReader(new FileReader("data/" + areaFileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] strings = line.split("@");
-                int totalPrice = Integer.parseInt(strings[2]);
-                totalPriceList.add(totalPrice);
-                int unitPrice = Integer.parseInt(strings[3]);
-                unitPriceList.add(unitPrice);
+//                String[] strings = line.split("@");
+//                int totalPrice = Integer.parseInt(strings[2]);
+//                totalPriceList.add(totalPrice);
+//                int unitPrice = Integer.parseInt(strings[3]);
+//                unitPriceList.add(unitPrice);
+                counter++;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,13 +62,12 @@ public class Analytics {
         Collections.sort(unitPriceList);
 
         System.out.println("---------------");
-        System.out.println(totalPriceList.get(0));
-        System.out.println(totalPriceList.get(totalPriceList.size() - 1));
-        System.out.println(totalPriceList.stream().mapToInt(Integer::intValue).sum() / totalPriceList.size());
-
-        System.out.println(unitPriceList.get(0));
-        System.out.println(unitPriceList.get(unitPriceList.size() - 1));
-        System.out.println(unitPriceList.stream().mapToInt(Integer::intValue).sum() / unitPriceList.size());
-
+//        System.out.println(totalPriceList.get(0));
+//        System.out.println(totalPriceList.get(totalPriceList.size() - 1));
+//        System.out.println(totalPriceList.stream().mapToInt(Integer::intValue).sum() / totalPriceList.size());
+//
+//        System.out.println(unitPriceList.get(0));
+//        System.out.println(unitPriceList.get(unitPriceList.size() - 1));
+//        System.out.println(unitPriceList.stream().mapToInt(Integer::intValue).sum() / unitPriceList.size());
     }
 }
